@@ -101,7 +101,7 @@ Open-source and free to use.
 ## 👨‍💻 Developer
 
 **Shubham**  
-B.Tech CSE | Frontend Developer | Building Consistently 🚀  
+B.Tech CSE | Ful-stack Developer | Building Consistently 🚀  
 
 ---
 

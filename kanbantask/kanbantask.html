@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kanban Task Manager — Trello Clone (HTML/CSS/JS)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="dot">K</div>
+    <div>
+      <h1>Kanban — Task Manager</h1>
+      <div class="small">Simple Trello-like board (HTML/CSS/JS)</div>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search tasks or tags..." />
+      <select id="filterTag">
+        <option value="">Filter tag (all)</option>
+      </select>
+    </div>
+
+    <div class="controls">
+      <button id="addColumnBtn" class="btn">+ Add Column</button>
+      <button id="exportBtn" class="btn ghost">Export</button>
+      <button id="importBtn" class="btn ghost">Import</button>
+      <button id="clearBtn" class="btn ghost danger">Clear Board</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="board" class="board" aria-live="polite"></div>
+
+  <footer>
+    Tip: Drag tasks to move them between columns. Data is saved locally in your browser.
+  </footer>
+</main>
+
+<!-- Task Modal -->
+<div id="taskModal" class="modal" style="display:none">
+  <div class="card" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+    <h2 id="taskModalTitle">Add Task</h2>
+    <form id="taskForm">
+      <div class="form-row">
+        <label>Title</label>
+        <input id="taskTitle" type="text" required placeholder="Task title" />
+      </div>
+      <div class="form-row">
+        <label>Description</label>
+        <textarea id="taskDesc" rows="4" placeholder="Describe the task"></textarea>
+      </div>
+      <div class="grid-2">
+        <div class="form-row">
+          <label>Due date</label>
+          <input id="taskDue" type="date" />
+        </div>
+        <div class="form-row">
+          <label>Tags (comma separated)</label>
+          <input id="taskTags" type="text" placeholder="bug,frontend,high-priority" />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Column</label>
+        <select id="taskColumn"></select>
+      </div>
+      <div class="actions">
+        <button type="button" id="taskCancel" class="btn ghost">Cancel</button>
+        <button type="submit" class="btn">Save Task</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Column Modal -->
+<div id="colModal" class="modal" style="display:none">
+  <div class="card" role="dialog" aria-modal="true">
+    <h2 id="colModalTitle">Add Column</h2>
+    <form id="colForm">
+      <div class="form-row">
+        <label>Column name</label>
+        <input id="colName" type="text" required placeholder="e.g. To Do" />
+      </div>
+      <div class="actions">
+        <button type="button" id="colCancel" class="btn ghost">Cancel</button>
+        <button type="submit" class="btn">Save Column</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Hidden file input for import -->
+<input id="importFile" type="file" accept="application/json" style="display:none" />
+
+<script src="script.js"></script>
+
+</body>
+</html>

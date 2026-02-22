@@ -42,13 +42,6 @@ Designed for simplicity, productivity, and performance.
 
 ---
 
-## 📸 Live Demo
-
-🔗 Add your GitHub Pages link here  
-Example: https://your-username.github.io/kanbantask/
-
----
-
 ## 📂 Project Structure
 KanbanTask/
 │
